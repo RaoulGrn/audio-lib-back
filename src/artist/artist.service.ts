@@ -43,7 +43,7 @@ export class ArtistService {
     await this.artistModel.findByIdAndDelete(id).exec();
   }
 
-  async search(term: string): Promise<Artist[]> {
-    return this.artistModel.find({ name: new RegExp(term, 'i') }).exec();
+  async search(name: string): Promise<Artist[]> {
+    return this.artistModel.find({ name: new RegExp(name, 'i') }).exec();
   }
 }

@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { ArtistService } from './artist.service';
 import { CreateArtistDto } from './dto/create-artist.dto';
+import { Artist } from './schemas/artist.schema';
 
 @Controller('artists')
 export class ArtistController {
@@ -17,6 +18,11 @@ export class ArtistController {
   @Get()
   async findAll() {
     return this.artistService.findAll();
+  }
+
+  @Get('search')
+  async search(@Query('name') name: string): Promise<Artist[]> {
+    return this.artistService.search(name);
   }
 
   @Get(':id')
@@ -32,10 +38,5 @@ export class ArtistController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.artistService.remove(id);
-  }
-
-  @Get('search')
-  async search(@Query('name') name: string) {
-    return this.artistService.search(name);
   }
 }
