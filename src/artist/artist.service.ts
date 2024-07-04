@@ -4,7 +4,6 @@ import { Model } from 'mongoose';
 import { Artist } from './schemas/artist.schema';
 import { CreateArtistDto } from './dto/create-artist.dto';
 import { AlbumService } from '../album/album.service';
-import { CreateSongDto } from '../song/dto/create-song.dto';
 
 @Injectable()
 export class ArtistService {
