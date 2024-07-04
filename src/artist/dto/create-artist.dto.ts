@@ -1,9 +1,9 @@
 import { IsString, IsArray, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { CreateAlbumDto } from './create-album.dto';
+import { CreateAlbumDto } from '../../album/dto/create-album.dto';
 
 export class CreateArtistDto {
-  @isString()
+  @IsString()
   readonly name: string;
 
   @IsArray()
