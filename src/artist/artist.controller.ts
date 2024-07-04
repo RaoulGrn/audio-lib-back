@@ -10,32 +10,32 @@ import {
 import { ArtistService } from './artist.service';
 import { CreateArtistDto } from './dto/create-artist.dto';
 
-@Controller('artist')
+@Controller('artists')
 export class ArtistController {
   constructor(private readonly artistService: ArtistService) {}
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.artistService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string) {
     return this.artistService.findOne(id);
   }
 
   @Post()
-  create(@Body() createArtistDto: CreateArtistDto) {
+  async create(@Body() createArtistDto: CreateArtistDto) {
     return this.artistService.create(createArtistDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string) {
     return this.artistService.remove(id);
   }
 
   @Get('search')
-  search(@Query('name') name: string) {
+  async search(@Query('name') name: string) {
     return this.artistService.search(name);
   }
 }
