@@ -13,11 +13,29 @@ export class ArtistService {
   ) {}
 
   async findAll(): Promise<Artist[]> {
-    return this.artistModel.find().populate('albums').exec();
+    return this.artistModel
+      .find()
+      .populate({
+        path: 'albums',
+        populate: {
+          path: 'songs',
+          model: 'Song',
+        },
+      })
+      .exec();
   }
 
   async findOne(id: string): Promise<Artist> {
-    return this.artistModel.findById(id).populate('albums').exec();
+    return this.artistModel
+      .findById(id)
+      .populate({
+        path: 'albums',
+        populate: {
+          path: 'songs',
+          model: 'Song',
+        },
+      })
+      .exec();
   }
 
   async create(createArtistDto: CreateArtistDto): Promise<Artist> {
@@ -44,6 +62,15 @@ export class ArtistService {
   }
 
   async search(name: string): Promise<Artist[]> {
-    return this.artistModel.find({ name: new RegExp(name, 'i') }).exec();
+    return this.artistModel
+      .find({ name: new RegExp(name, 'i') })
+      .populate({
+        path: 'albums',
+        populate: {
+          path: 'songs',
+          model: 'Song',
+        },
+      })
+      .exec();
   }
 }

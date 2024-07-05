@@ -27,7 +27,7 @@ async function bootstrap() {
   for (const artistData of data) {
     await artistService.create(artistData);
   }
-
+  app.enableCors();
   await app.listen(3000);
 }
 
