@@ -20,6 +20,11 @@ export class AlbumController {
     return this.albumService.findAll();
   }
 
+  @Get('search')
+  async search(@Query('title') title: string) {
+    return this.albumService.search(title);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return this.albumService.findOne(id);
@@ -33,11 +38,6 @@ export class AlbumController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.albumService.remove(id);
-  }
-
-  @Get('search')
-  async search(@Query('title') title: string) {
-    return this.albumService.search(title);
   }
 
   @Post(':id/songs')

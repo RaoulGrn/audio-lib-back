@@ -13,9 +13,16 @@ export class SongService {
     return song.save();
   }
 
+  async findAll(): Promise<Song[]> {
+    return this.songModel.find().exec();
+  }
+
   async createMany(songsData: CreateSongDto[]): Promise<Song[]> {
     const songs = await this.songModel.create(songsData);
     return songs;
+  }
+  async search(term: string): Promise<Song[]> {
+    return this.songModel.find({ title: new RegExp(term, 'i') }).exec();
   }
 
   async remove(id: string): Promise<void> {

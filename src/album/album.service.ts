@@ -31,7 +31,10 @@ export class AlbumService {
   }
 
   async search(term: string): Promise<Album[]> {
-    return this.albumModel.find({ title: new RegExp(term, 'i') }).exec();
+    return this.albumModel
+      .find({ title: new RegExp(term, 'i') })
+      .populate('songs')
+      .exec();
   }
 
   async addSongsToAlbum(
