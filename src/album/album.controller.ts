@@ -6,12 +6,15 @@ import {
   Param,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { AlbumService } from './album.service';
 import { CreateAlbumDto } from './dto/create-album.dto';
 import { Types } from 'mongoose';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('albums')
+@UseGuards(AuthGuard())
 export class AlbumController {
   constructor(private readonly albumService: AlbumService) {}
 

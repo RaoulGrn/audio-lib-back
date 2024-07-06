@@ -6,12 +6,15 @@ import {
   Param,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { ArtistService } from './artist.service';
 import { CreateArtistDto } from './dto/create-artist.dto';
 import { Artist } from './schemas/artist.schema';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('artists')
+@UseGuards(AuthGuard())
 export class ArtistController {
   constructor(private readonly artistService: ArtistService) {}
 

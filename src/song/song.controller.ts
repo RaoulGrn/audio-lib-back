@@ -6,11 +6,14 @@ import {
   Param,
   Query,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { SongService } from './song.service';
 import { CreateSongDto } from './dto/create-song.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('songs')
+@UseGuards(AuthGuard())
 export class SongController {
   constructor(private readonly songService: SongService) {}
 
