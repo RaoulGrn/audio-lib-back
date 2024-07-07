@@ -1,4 +1,18 @@
+# Audio Library - Backend
 
+This project was made for the technical assessment of MMCTech. My task was to design and implement a digital music library, where you’ll be able to visualize your artists and their albums with a description and their songs.
+I also had to implement an autocomplete component that provides suggestions as a user enters a search box. 
+
+## Technologies Involved
+
+* Backend in NestJs
+* Frontend in React(vite).
+  
+### Other modules/plugins/technologies:
+            * MongoDB - mongoose
+            * passport
+            * bcryptjs
+         
 ## Installation
 * Clone the repository
 ```bash
