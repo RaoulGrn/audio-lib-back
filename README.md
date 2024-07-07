@@ -1,6 +1,6 @@
 
 ## Installation
-
+* After cloning the repository
 ```bash
 $ npm install
 ```
