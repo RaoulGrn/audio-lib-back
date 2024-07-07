@@ -9,7 +9,7 @@ I also had to implement an autocomplete component that provides suggestions as a
 ## Technologies Involved
 
 * Backend in NestJs
-* Frontend in React(vite). https://github.com/RaoulGrn/audio-lib-front/tree/main
+* Frontend in React(vite). https://github.com/RaoulGrn/audio-lib-front
   
 ### Other modules/plugins/technologies:
             * MongoDB - mongoose
